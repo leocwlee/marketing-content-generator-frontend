@@ -11,7 +11,7 @@ const languages = ['English', 'Traditional Chinese', 'Simplified Chinese'];
 const lengths = ['Long', 'Medium', 'Short'];
 
 // Backend API URL (make sure backend server is running on this port)
-const API_URL = '/.netlify/functions/generate-content';
+const API_URL = process.env.REACT_APP_API_URL || '/.netlify/functions/generate-content';
 
 function App() {
   // State for form inputs
