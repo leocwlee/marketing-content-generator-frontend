@@ -46,11 +46,13 @@ exports.handler = async function(event, context) {
       })
     };
   } catch (error) {
+    console.error('Function error:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         error: 'Content generation failed',
-        details: error.message 
+        details: error.message,
+        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
       })
     };
   }
